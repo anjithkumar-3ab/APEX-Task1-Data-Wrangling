@@ -1,0 +1,141 @@
+====================================================================================================
+COMPREHENSIVE DATA DICTIONARY - RETAIL TRANSACTIONS DATASET
+====================================================================================================
+
+
+Transaction_ID
+----------------------------------------------------------------------------------------------------
+Data Type: Integer (int64)
+Description: Unique identifier for each retail transaction
+Range: 1,000,000,000 to 1,000,999,999
+Business Relevance: Primary key for tracking and referencing individual transactions. Essential for transaction-level analysis and avoiding duplication.
+Quality Notes: No missing values, no duplicates detected
+
+Date
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - Should be DateTime
+Description: Date and time when the transaction occurred
+Format: YYYY-MM-DD HH:MM:SS
+Range: 2020-01-01 to 2024-12-31 (approximate)
+Business Relevance: Critical for time-series analysis, seasonal trends, peak shopping hours, and year-over-year comparisons. Enables temporal pattern analysis.
+Quality Notes: Currently stored as string - needs conversion to datetime type for proper analysis
+Recommended Transformation: Convert to datetime64[ns] type
+
+Customer_Name
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object)
+Description: Full name of the customer who made the transaction
+Unique Values: 329,738 unique customers
+Business Relevance: Identifies repeat customers for loyalty analysis, customer lifetime value calculation, and personalized marketing. Note: Multiple customers may share the same name.
+Quality Notes: Most common name: 'Michael Smith' with 454 occurrences. Names appear properly formatted.
+Privacy Consideration: Contains PII (Personally Identifiable Information) - handle according to data privacy regulations
+
+Product
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - List representation
+Description: List of products purchased in the transaction, stored as string representation of Python list
+Format: ['Product1', 'Product2', ...]
+Unique Values: 571,947 unique product combinations
+Business Relevance: Essential for product affinity analysis, market basket analysis, inventory management, and understanding purchase patterns. Can identify frequently bought together items.
+Quality Notes: Stored as string representation of list - may need parsing for detailed product-level analysis
+Recommended Transformation: Parse string to actual list for product-level analysis; consider splitting into separate rows for item-level analysis
+
+Total_Items
+----------------------------------------------------------------------------------------------------
+Data Type: Integer (int64)
+Description: Total number of items purchased in the transaction
+Range: 1 to 10 items
+Mean: 5.5 items
+Median: 5 items
+Business Relevance: Indicates basket size, useful for understanding shopping patterns, average transaction volume, and for segmenting small vs. large purchases.
+Quality Notes: No missing values, uniform distribution, no outliers detected
+Insights: Reasonable range suggests controlled product selection per transaction
+
+Total_Cost
+----------------------------------------------------------------------------------------------------
+Data Type: Float (float64)
+Description: Total monetary value of the transaction in dollars
+Range: $5.00 to $100.00
+Mean: $52.46
+Median: $52.42
+Std Dev: $27.42
+Business Relevance: Key revenue metric for calculating total sales, average transaction value, revenue trends, and identifying high-value transactions. Critical for financial reporting.
+Quality Notes: No missing values, no negative values detected, no outliers
+Insights: Relatively balanced distribution around $52, suggesting consistent pricing structure
+
+Payment_Method
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - Categorical
+Description: Method of payment used for the transaction
+Categories: ['Cash', 'Debit Card', 'Credit Card', 'Mobile Payment']
+Distribution: Fairly evenly distributed (~25% each)
+Business Relevance: Important for understanding customer payment preferences, processing fee calculation, and optimizing payment infrastructure. Can inform digital transformation initiatives.
+Quality Notes: No missing values, clean categorical data, well-formatted
+Insights: Balanced usage across all payment methods indicates diverse customer preferences
+
+City
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - Categorical
+Description: City where the transaction took place
+Categories: ['Boston', 'Dallas', 'Seattle', 'Chicago', 'Houston', 'New York', 'Los Angeles', 'Miami', 'San Francisco', 'Atlanta']
+Total Cities: 10
+Distribution: Relatively balanced (~10% each city)
+Business Relevance: Enables geographic analysis, regional performance comparison, targeted marketing, and location-based inventory decisions. Critical for expansion planning.
+Quality Notes: No missing values, consistent formatting
+Insights: Multi-city presence with fairly uniform transaction distribution
+
+Store_Type
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - Categorical
+Description: Type of retail store where the transaction occurred
+Categories: ['Supermarket', 'Pharmacy', 'Convenience Store', 'Warehouse Club', 'Department Store', 'Specialty Store']
+Total Types: 6
+Distribution: Evenly distributed (~16-17% each)
+Business Relevance: Critical for channel analysis, understanding shopping preferences by store format, optimizing product assortment by store type, and competitive positioning.
+Quality Notes: No missing values, consistent formatting
+Insights: Diverse retail channel representation
+
+Discount_Applied
+----------------------------------------------------------------------------------------------------
+Data Type: Boolean (bool)
+Description: Indicates whether any discount was applied to the transaction
+Values: True/False
+Business Relevance: Essential for measuring promotion effectiveness, understanding price sensitivity, calculating discount impact on revenue, and optimizing promotional strategies.
+Quality Notes: No missing values, proper boolean type
+Analysis Opportunity: Correlate with Total_Cost and Promotion columns to measure discount impact
+
+Customer_Category
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - Categorical
+Description: Demographic or lifestyle segment of the customer
+Categories: ['Senior Citizen', 'Homemaker', 'Teenager', 'Retiree', 'Student', 'Professional', 'Middle-Aged', 'Young Adult']
+Total Categories: 8
+Distribution: Relatively balanced (~12-13% each)
+Business Relevance: Crucial for customer segmentation, targeted marketing, product recommendation, understanding demographic preferences, and tailoring customer experience.
+Quality Notes: No missing values, consistent categories
+Insights: Diverse customer base across all life stages
+
+Season
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - Categorical
+Description: Season during which the transaction occurred
+Categories: ['Spring', 'Fall', 'Winter', 'Summer']
+Total Seasons: 4
+Distribution: Fairly balanced (~25% each)
+Business Relevance: Enables seasonal trend analysis, demand forecasting, seasonal inventory planning, and understanding seasonality impact on sales patterns.
+Quality Notes: No missing values, consistent formatting
+Derived From: Likely derived from Date column
+Insights: Balanced seasonal coverage for comprehensive year-round analysis
+
+Promotion
+----------------------------------------------------------------------------------------------------
+Data Type: String (Object) - Categorical
+Description: Type of promotional campaign active during the transaction (if any)
+Categories: ['BOGO (Buy One Get One)', 'Discount on Selected Items', None]
+Total Types: 2 (plus NULL)
+Missing Percentage: 33.39%
+Distribution: When present, evenly split between the two promotion types
+Business Relevance: Critical for promotion effectiveness analysis, ROI calculation, understanding which promotions drive sales, and planning future campaigns.
+Quality Notes: 33.39% missing values - represents transactions without active promotions
+Interpretation: NULL values are meaningful - indicate no promotion was active
+Recommended Treatment: Fill NULL values with 'No Promotion' for clarity in analysis

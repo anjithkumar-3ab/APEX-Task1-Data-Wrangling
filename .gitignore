@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (CSV files are too large for GitHub)
+*.csv
+*.tmp
+*.log
+
+# Note: Dataset files are excluded due to GitHub's 100MB limit
+# Original dataset: retail_transactions_original.csv (160 MB)
+# Cleaned dataset: retail_transactions_cleaned.csv (210 MB)
