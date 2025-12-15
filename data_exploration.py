@@ -9,7 +9,7 @@ from datetime import datetime
 
 # Load the dataset
 print("Loading dataset...")
-df = pd.read_csv('Retail_Transactions_Dataset.csv')
+df = pd.read_csv('retail_transactions_original.csv')
 
 print("\n" + "="*80)
 print("STEP 1: DATA ACCESS & FAMILIARIZATION")

@@ -22,7 +22,7 @@ print("="*100)
 
 # Load the cleaned dataset
 print("\nLoading cleaned dataset...")
-df = pd.read_csv('Retail_Transactions_Dataset_CLEANED.csv', parse_dates=['Date'])
+df = pd.read_csv('retail_transactions_cleaned.csv', parse_dates=['Date'])
 print(f"✓ Loaded {df.shape[0]:,} rows and {df.shape[1]} columns")
 
 # Display basic information

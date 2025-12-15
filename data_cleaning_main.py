@@ -19,7 +19,7 @@ print("="*100)
 
 # Load the dataset
 print("\n[1/10] Loading dataset...")
-df = pd.read_csv('Retail_Transactions_Dataset.csv')
+df = pd.read_csv('retail_transactions_original.csv')
 print(f"✓ Loaded {df.shape[0]:,} rows and {df.shape[1]} columns")
 
 # Create a copy for cleaning
@@ -246,12 +246,12 @@ print(f"✓ Columns reordered for logical flow")
 print("\n[10/10] Saving cleaned dataset...")
 
 # Save to CSV
-output_file = 'Retail_Transactions_Dataset_CLEANED.csv'
+output_file = 'retail_transactions_cleaned.csv'
 df_clean.to_csv(output_file, index=False)
 print(f"✓ Saved cleaned dataset to: {output_file}")
 
 # Save a sample for quick preview
-sample_file = 'Retail_Transactions_Dataset_SAMPLE.csv'
+sample_file = 'retail_transactions_sample.csv'
 df_clean.head(1000).to_csv(sample_file, index=False)
 print(f"✓ Saved sample (1,000 rows) to: {sample_file}")
 
