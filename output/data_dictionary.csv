@@ -1,0 +1,14 @@
+column,dtype,non_null,missing,missing_pct,unique,min,mean,std,q1,median,q3,max,outliers_iqr,top_values
+Transaction_ID,int64,1000000,0,0.0,1000000,1000000000.0,1000499999.5,288675.27893234405,1000249999.75,1000499999.5,1000749999.25,1000999999.0,0.0,
+Date,object,1000000,0,0.0,996337,,,,,,,,,2020-02-11 14:47:13: 3; 2024-03-13 12:44:06: 3; 2023-11-12 08:46:48: 3; 2020-03-11 20:38:45: 3; 2021-09-02 08:23:16: 3
+Customer_Name,object,1000000,0,0.0,329738,,,,,,,,,Michael Smith: 454; Michael Johnson: 341; James Smith: 337; David Smith: 309; Michael Williams: 304
+Product,object,1000000,0,0.0,571947,,,,,,,,,['Toothpaste']: 4893; ['Deodorant']: 2541; ['Honey']: 2540; ['Eggs']: 2515; ['Vinegar']: 2505
+Total_Items,int64,1000000,0,0.0,10,1.0,5.495941,2.871654187209311,3.0,5.0,8.0,10.0,0.0,
+Total_Cost,float64,1000000,0,0.0,9501,5.0,52.45522040000001,27.416989145333183,28.71,52.42,76.19,100.0,0.0,
+Payment_Method,object,1000000,0,0.0,4,,,,,,,,,Cash: 250230; Debit Card: 250074; Credit Card: 249985; Mobile Payment: 249711
+City,object,1000000,0,0.0,10,,,,,,,,,Boston: 100566; Dallas: 100559; Seattle: 100167; Chicago: 100059; Houston: 100050
+Store_Type,object,1000000,0,0.0,6,,,,,,,,,Supermarket: 166936; Pharmacy: 166915; Convenience Store: 166749; Warehouse Club: 166685; Department Store: 166614
+Discount_Applied,bool,1000000,0,0.0,2,,,,,,,,,
+Customer_Category,object,1000000,0,0.0,8,,,,,,,,,Senior Citizen: 125485; Homemaker: 125418; Teenager: 125319; Retiree: 125072; Student: 124842
+Season,object,1000000,0,0.0,4,,,,,,,,,Spring: 250368; Fall: 250248; Winter: 249763; Summer: 249621
+Promotion,object,666057,333943,33.39,2,,,,,,,,,Discount on Selected Items: 333370; BOGO (Buy One Get One): 332687

@@ -1,33 +1,47 @@
 # Python
 __pycache__/
 *.py[cod]
-*$py.class
+*.pyo
+*.pyd
 *.so
-.Python
-env/
+*.dll
+
+# Virtual environments
+.venv/
 venv/
-*.egg-info/
-dist/
-build/
+ENV/
+.env/
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Jupyter
+.ipynb_checkpoints/
 
-# IDEs
+# IDE/editor
 .vscode/
 .idea/
-*.swp
-*.swo
+*.code-workspace
 
-# OS
+# Test/coverage
+.pytest_cache/
+.coverage*
+htmlcov/
+.tox/
+.mypy_cache/
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# Data files (CSV files are too large for GitHub)
-*.csv
-*.tmp
+# Logs and local env
 *.log
+.env
+.env.*
 
-# Note: Dataset files are excluded due to GitHub's 100MB limit
-# Original dataset: retail_transactions_original.csv (160 MB)
-# Cleaned dataset: retail_transactions_cleaned.csv (210 MB)
+# Cache
+.cache/
+
+# Keep output artifacts tracked unless ignored explicitly
+# output/
+
+# Exclude very large datasets from version control
+Retail_Transactions_Dataset.csv
+output/retail_transactions_dataset_cleaned.csv
